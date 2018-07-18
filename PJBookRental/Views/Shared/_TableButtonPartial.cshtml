@@ -1,0 +1,45 @@
+﻿@model PJBookRental.Models.IndividualButtonPartial
+@using PJBookRental.Models
+
+<td style="width:400px">
+    <div class="btn-group" role="group">
+        @Html.Partial("_IndividualButtonPartial",
+               new IndividualButtonPartial
+               {
+                   Action = "Edit",
+                   ButtonType = "btn-primary",
+                   Glyph = "pencil",
+                   Text = "Edit Button",
+                   GenreId = Model.GenreId,
+                   BookId = Model.CustomerId,
+                   MembershipTypeId = Model.MembershipTypeId
+               })
+    </div>
+    <div class="btn-group" role="group">
+        @Html.Partial("_IndividualButtonPartial",
+               new IndividualButtonPartial
+               {
+                   Action = "Details",
+                   ButtonType = "btn-success",
+                   Glyph = "list",
+                   Text = "Details",
+                   GenreId = Model.GenreId,
+                   BookId = Model.CustomerId,
+                   MembershipTypeId = Model.MembershipTypeId
+               })
+    </div>
+    <div class="btn-group" role="group">
+        @Html.Partial("_IndividualButtonPartial",
+               new IndividualButtonPartial
+               {
+                   Action = "Delete",
+                   ButtonType = "btn-danger",
+                   Glyph = "trash",
+                   Text = "Delete",
+                   GenreId = Model.GenreId,
+                   BookId = Model.CustomerId,
+                   MembershipTypeId = Model.MembershipTypeId
+               })
+    </div>
+</td>
+
