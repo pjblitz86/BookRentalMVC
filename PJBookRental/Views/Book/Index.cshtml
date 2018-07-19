@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<PJBookRental.Models.Book>
 @using PJBookRental.Models
-
 @{
     ViewBag.Title = "Index";
 }
@@ -34,6 +33,7 @@
 
 @foreach (var item in Model) {
     <tr>
+
         <td>
             @Html.DisplayFor(modelItem => item.ISBN)
         </td>
@@ -49,9 +49,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.Genre.Name)
         </td>
-
         <td>
-            @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { BookId = item.Id} )
+            @Html.Partial("_TableButtonPartial", new IndividualButtonPartial { BookId = item.Id})
         </td>
     </tr>
 }
