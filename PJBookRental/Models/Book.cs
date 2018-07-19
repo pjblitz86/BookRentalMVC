@@ -44,6 +44,9 @@ namespace PJBookRental.Models
         public Genre Genre { get; set; }
 
         [Required]
+        public string Publisher { get; set; }
+
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0: MMM dd yyy}")]
         public DateTime PublicationDate { get; set; }

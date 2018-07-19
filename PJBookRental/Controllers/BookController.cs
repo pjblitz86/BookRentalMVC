@@ -68,6 +68,8 @@ namespace PJBookRental.Controllers
                 Description = bookVM.Book.Description,
                 Genre = bookVM.Book.Genre,
                 GenreId = bookVM.Book.GenreId,
+                Publisher = bookVM.Book.Publisher,
+                ImageUrl = bookVM.Book.ImageUrl,
                 ISBN = bookVM.Book.ISBN,
                 Pages = bookVM.Book.Pages,
                 Price = bookVM.Book.Price,
@@ -128,6 +130,8 @@ namespace PJBookRental.Controllers
                 Description = bookVM.Book.Description,
                 Genre = bookVM.Book.Genre,
                 GenreId = bookVM.Book.GenreId,
+                Publisher = bookVM.Book.Publisher,
+                ImageUrl = bookVM.Book.ImageUrl,
                 ISBN = bookVM.Book.ISBN,
                 Pages = bookVM.Book.Pages,
                 Price = bookVM.Book.Price,
@@ -143,7 +147,7 @@ namespace PJBookRental.Controllers
                 return RedirectToAction("Index");
             }
             bookVM.Genres = db.Genres.ToList();
-            return View(book);
+            return View(bookVM);
         }
 
         // GET: Book/Delete/5
