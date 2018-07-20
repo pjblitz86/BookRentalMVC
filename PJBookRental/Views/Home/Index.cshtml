@@ -4,6 +4,9 @@
     ViewBag.Title = "Home Page";
 }
 
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+
 <br />
 <div class="row">
     <div class="pull-right" style="padding-right:15px">
@@ -16,7 +19,7 @@
     </div>
 </div>
 <br />
-
+}
 <div class="row">
     @foreach(var area in Model)
     {

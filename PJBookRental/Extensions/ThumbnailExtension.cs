@@ -8,7 +8,7 @@ namespace PJBookRental.Extensions
 {
     public static class ThumbnailExtension
     {
-        public static IEnumerable<ThumbnailModel> GetBookThumbnail(this List<ThumbnailModel> thumbnails, ApplicationDbContext db=null)
+        public static IEnumerable<ThumbnailModel> GetBookThumbnail(this List<ThumbnailModel> thumbnails, ApplicationDbContext db=null, string search = null)
         {
             try
             {
@@ -27,6 +27,8 @@ namespace PJBookRental.Extensions
                               ImageUrl = b.ImageUrl,
                               Link = "/BookDetail/Index/" + b.Id
                           }).ToList();
+                if (search != null)
+                    return thumbnails.Where(t => t.Title.ToLower().Contains(search.ToLower())).OrderBy(t => t.Title);
             }
             catch(Exception ex) { }
             return thumbnails.OrderBy(b => b.Title);
