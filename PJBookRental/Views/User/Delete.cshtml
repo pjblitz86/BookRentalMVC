@@ -1,0 +1,69 @@
+﻿@model PJBookRental.ViewModel.UserViewModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h3>Are you sure you want to delete this User?</h3>
+        <hr />
+        <div class="form-border">
+            <fieldset disabled>
+                <div class="row" style="padding-bottom:5px; padding-top:5px;">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m=>m.FirstName,
+                                       htmlAttributes: new { @class="control-label"} )
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:5px; padding-top:5px;">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m=>m.LastName,
+                                       htmlAttributes: new { @class="control-label"} )
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:5px; padding-top:5px;">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m=>m.Phone,
+                                       htmlAttributes: new { @class="control-label"} )
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:5px; padding-top:5px;">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m=>m.BirthDate,
+                                       htmlAttributes: new { @class="control-label"} )
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.BirthDate, "{0: MM dd yyyy}", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom:5px; padding-top:5px;">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m=>m.Email,
+                                       htmlAttributes: new { @class="control-label"} )
+                    </div>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <br />
+    <div>
+        @Html.Partial("_BackToListButtonPartial")
+        <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+    </div>
+
+}
+

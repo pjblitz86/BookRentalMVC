@@ -106,7 +106,7 @@ namespace PJBookRental.Controllers
             }
 
             db.SaveChanges();
-            return RedirectToAction("Index", "Users");
+            return RedirectToAction("Index", "User");
         }
 
         public ActionResult Details(string id)

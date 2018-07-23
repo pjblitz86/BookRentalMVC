@@ -10,6 +10,23 @@ namespace PJBookRental.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        public string Phone { get; set; }
+
+        [Required]
+        [Display(Name ="Birth Date")]
+        [DataType(DataType.Date)]
+        [DateRange("01/01/1900")]
+        public DateTime BirthDate { get; set; }
+
+        public bool? Disabled { get; set; }
+
+        public ICollection<MembershipType> MembershipTypes { get; set; }
+
+        [Required]
+        public int MembershipTypeId { get; set; }
+
     }
 
     public class ExternalLoginListViewModel
