@@ -4,16 +4,17 @@
 <td style="width:400px">
     <div class="btn-group" role="group">
         @Html.Partial("_IndividualButtonPartial",
-               new IndividualButtonPartial
-               {
-                   Action = "Edit",
-                   ButtonType = "btn-primary",
-                   Glyph = "pencil",
-                   Text = "Edit Button",
-                   GenreId = Model.GenreId,
-                   BookId = Model.BookId,
-                   MembershipTypeId = Model.MembershipTypeId
-               })
+         new IndividualButtonPartial
+         {
+             Action = "Edit",
+             ButtonType = "btn-primary",
+             Glyph = "pencil",
+             Text = "Edit Button",
+             GenreId = Model.GenreId,
+             BookId = Model.BookId,
+             MembershipTypeId = Model.MembershipTypeId,
+             UserId = Model.UserId
+        })
     </div>
     <div class="btn-group" role="group">
         @Html.Partial("_IndividualButtonPartial",
@@ -25,8 +26,9 @@
                    Text = "Details",
                    GenreId = Model.GenreId,
                    BookId = Model.BookId,
-                   MembershipTypeId = Model.MembershipTypeId
-               })
+                   MembershipTypeId = Model.MembershipTypeId,
+                   UserId = Model.UserId
+        })
     </div>
     <div class="btn-group" role="group">
         @Html.Partial("_IndividualButtonPartial",
@@ -38,7 +40,8 @@
                    Text = "Delete",
                    GenreId = Model.GenreId,
                    BookId = Model.BookId,
-                   MembershipTypeId = Model.MembershipTypeId
+                   MembershipTypeId = Model.MembershipTypeId,
+                   UserId = Model.UserId
                })
     </div>
 </td>

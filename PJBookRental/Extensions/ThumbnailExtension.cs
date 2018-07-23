@@ -30,7 +30,7 @@ namespace PJBookRental.Extensions
                 if (search != null)
                     return thumbnails.Where(t => t.Title.ToLower().Contains(search.ToLower())).OrderBy(t => t.Title);
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { Console.WriteLine(ex.Message);  }
             return thumbnails.OrderBy(b => b.Title);
         }
     }

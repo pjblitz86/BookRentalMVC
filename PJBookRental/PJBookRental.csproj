@@ -213,6 +213,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembershipTypeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Extensions\DateRangeAttribute.cs" />
     <Compile Include="Extensions\ThumbnailExtension.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,6 +263,10 @@
     <Compile Include="Migrations\201807230608516_IdentityModelTestChange2.Designer.cs">
       <DependentUpon>201807230608516_IdentityModelTestChange2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807230947221_AddPropsToUser.cs" />
+    <Compile Include="Migrations\201807230947221_AddPropsToUser.Designer.cs">
+      <DependentUpon>201807230947221_AddPropsToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -276,6 +281,7 @@
     <Compile Include="Utility\SD.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
     <Compile Include="ViewModel\ThumbnailBoxViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -368,6 +374,7 @@
     <Content Include="Views\MembershipType\Index.cshtml" />
     <Content Include="Views\Shared\_ThumbnailAreaPartial.cshtml" />
     <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -418,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807230608516_IdentityModelTestChange2.resx">
       <DependentUpon>201807230608516_IdentityModelTestChange2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807230947221_AddPropsToUser.resx">
+      <DependentUpon>201807230947221_AddPropsToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

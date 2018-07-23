@@ -17,6 +17,7 @@ namespace PJBookRental.Models
         public int? BookId { get; set; }
         public int? CustomerId { get; set; }
         public int? MembershipTypeId { get; set; }
+        public string UserId { get; set; }
 
         public string ActionParameter
         {
@@ -39,6 +40,11 @@ namespace PJBookRental.Models
                 {
                     param.Append(String.Format("{0}", MembershipTypeId));
                 }
+                if (UserId != null && UserId.Trim().Length > 0)
+                {
+                    param.Append(String.Format("{0}", UserId));
+                }
+
                 return param.ToString();
             }
         }
