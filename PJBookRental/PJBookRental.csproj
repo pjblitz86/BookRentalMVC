@@ -302,6 +302,10 @@
     <Compile Include="Migrations\201807240700060_AddRentalDurationtoBookRental.Designer.cs">
       <DependentUpon>201807240700060_AddRentalDurationtoBookRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807241131415_AddBookViewModelProps.cs" />
+    <Compile Include="Migrations\201807241131415_AddBookViewModelProps.Designer.cs">
+      <DependentUpon>201807241131415_AddBookViewModelProps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -416,10 +420,10 @@
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\BookDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BookDetail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -482,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807240700060_AddRentalDurationtoBookRental.resx">
       <DependentUpon>201807240700060_AddRentalDurationtoBookRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241131415_AddBookViewModelProps.resx">
+      <DependentUpon>201807241131415_AddBookViewModelProps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
