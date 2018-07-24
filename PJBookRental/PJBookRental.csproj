@@ -297,6 +297,10 @@
     <Compile Include="Migrations\201807240655568_AddBookRentalModel.Designer.cs">
       <DependentUpon>201807240655568_AddBookRentalModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807240700060_AddRentalDurationtoBookRental.cs" />
+    <Compile Include="Migrations\201807240700060_AddRentalDurationtoBookRental.Designer.cs">
+      <DependentUpon>201807240700060_AddRentalDurationtoBookRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -310,6 +314,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\SD.cs" />
+    <Compile Include="ViewModel\BookRentalViewModel.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
     <Compile Include="ViewModel\ThumbnailBoxViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
@@ -472,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807240655568_AddBookRentalModel.resx">
       <DependentUpon>201807240655568_AddBookRentalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807240700060_AddRentalDurationtoBookRental.resx">
+      <DependentUpon>201807240700060_AddRentalDurationtoBookRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
