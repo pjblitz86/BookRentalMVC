@@ -31,6 +31,8 @@ namespace PJBookRental.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }
+        public DbSet<BookRent> BookRental { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

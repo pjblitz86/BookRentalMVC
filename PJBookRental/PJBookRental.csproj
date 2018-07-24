@@ -293,9 +293,14 @@
     <Compile Include="Migrations\201807240604472_ChangeLoginFields.Designer.cs">
       <DependentUpon>201807240604472_ChangeLoginFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807240655568_AddBookRentalModel.cs" />
+    <Compile Include="Migrations\201807240655568_AddBookRentalModel.Designer.cs">
+      <DependentUpon>201807240655568_AddBookRentalModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookRent.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndividualButtonPartial.cs" />
@@ -464,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807240604472_ChangeLoginFields.resx">
       <DependentUpon>201807240604472_ChangeLoginFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807240655568_AddBookRentalModel.resx">
+      <DependentUpon>201807240655568_AddBookRentalModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
