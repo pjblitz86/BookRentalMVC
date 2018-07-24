@@ -230,6 +230,7 @@
     <Compile Include="Controllers\Api\UsersAPIController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookDetailController.cs" />
+    <Compile Include="Controllers\BookRentController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -427,6 +428,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BookRent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
