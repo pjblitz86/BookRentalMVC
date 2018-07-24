@@ -285,6 +285,14 @@
     <Compile Include="Migrations\201807230947221_AddPropsToUser.Designer.cs">
       <DependentUpon>201807230947221_AddPropsToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807231313478_AddFacebookAndGoogleLoginProps.cs" />
+    <Compile Include="Migrations\201807231313478_AddFacebookAndGoogleLoginProps.Designer.cs">
+      <DependentUpon>201807231313478_AddFacebookAndGoogleLoginProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807240604472_ChangeLoginFields.cs" />
+    <Compile Include="Migrations\201807240604472_ChangeLoginFields.Designer.cs">
+      <DependentUpon>201807240604472_ChangeLoginFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -311,6 +319,7 @@
     <Content Include="Content\Images\jungle.jpg" />
     <Content Include="Content\Images\Spider.png" />
     <Content Include="Content\Images\Sunset.png" />
+    <Content Include="Content\social.css" />
     <Content Include="Content\thumbnail.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -449,6 +458,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807230947221_AddPropsToUser.resx">
       <DependentUpon>201807230947221_AddPropsToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807231313478_AddFacebookAndGoogleLoginProps.resx">
+      <DependentUpon>201807231313478_AddFacebookAndGoogleLoginProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807240604472_ChangeLoginFields.resx">
+      <DependentUpon>201807240604472_ChangeLoginFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -20,7 +20,7 @@ namespace PJBookRental.Models
         [DateRange("01/01/1900")]
         public DateTime BirthDate { get; set; }
 
-        public bool? Disabled { get; set; }
+        public bool? Disable { get; set; }
 
         public ICollection<MembershipType> MembershipTypes { get; set; }
 

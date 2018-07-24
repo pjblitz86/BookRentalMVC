@@ -145,7 +145,7 @@ namespace PJBookRental.Controllers
             {
                 RegisterViewModel newUser = new RegisterViewModel
                 {
-                    MembershipTypes = db.MembershipTypes.ToList(),
+                    MembershipTypes = db.MembershipTypes.Where(m=>!m.Name.ToLower().Equals(SD.AdminUserRole.ToLower())).ToList(),
                     BirthDate = DateTime.Now
                 };
                 return View(newUser);
@@ -207,9 +207,11 @@ namespace PJBookRental.Controllers
                 }
                 AddErrors(result);
             }
-
+            using (var db = ApplicationDbContext.Create())
+            {
+                model.MembershipTypes = db.MembershipTypes.ToList();
+            }
             // If we got this far, something failed, redisplay form
-            model.MembershipTypes = ApplicationDbContext.Create().MembershipTypes.ToList();
             return View(model);
         }
 
@@ -445,6 +447,10 @@ namespace PJBookRental.Controllers
                 AddErrors(result);
             }
 
+            using (var db = ApplicationDbContext.Create())
+            {
+                model.MembershipTypes = db.MembershipTypes.ToList();
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }

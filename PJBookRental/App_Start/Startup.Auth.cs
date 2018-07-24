@@ -58,11 +58,11 @@ namespace PJBookRental
                appId: "2326475270971886",
                appSecret: "f18c441deaea803487214019c1bbb3c5");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1061708769244-5418kq0m84pol3kqtaik79o505mqse32.apps.googleusercontent.com",
+                ClientSecret = "EDo1I7Tdg6r8M4SHcVGYAvw5"
+            });
         }
     }
 }
