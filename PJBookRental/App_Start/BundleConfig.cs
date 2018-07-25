@@ -21,6 +21,7 @@ namespace PJBookRental
 
             bundles.Add(new ScriptBundle("~/bundles/bookRentalJs").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/typeahead.bundle.min.js",
                       "~/Scripts/AdminMenu.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
