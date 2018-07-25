@@ -62,25 +62,25 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Label("", new { id = "firstName", style = "width:350px;", @class = "form-control" })
+                @Html.Label(" ", new { id = "firstName", style = "width:350px;", @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Label("", new { id = "birthDate", style = "width:350px;", @class = "form-control" })
+                @Html.Label(" ", new { id = "birthDate", style = "width:350px;", @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.RentalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Label("", new { id = "lblRentalPrice", style = "width:350px;", @class = "form-control" })
+                @Html.Label(" ", new { id = "lblRentalPrice", style = "width:350px;", @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Availability, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Label("", new { id = "lblAvailability", style = "width:350px;", @class = "form-control" })
+                @Html.Label(" ", new { id = "lblAvailability", style = "width:350px;", @class = "form-control" })
             </div>
         </div>
     </div>
@@ -130,6 +130,64 @@
                 });
         });
 
+        $('#btnAvailability').click(function () {
+            var isbn = document.getElementById("bookISBN").value;
+            var email = document.getElementById("email").value;
+            var rentalDuration = document.getElementById("ddlRentalDuration").value;
+
+            $.ajax({
+                url: '/Api/BookAPI?type=avail&isbn=' + isbn,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, xhr) {
+                    $('#lblAvailability').text(data + ' available')
+                    if (data > 0) {
+                        document.getElementById("btnSubmit").style.display = '';
+                    } else {
+                        document.getElementById("btnSubmit").style.display = '';
+                        document.getElementById("btnSubmit").value = "Not Available";
+                        document.getElementById("btnSubmit").display = true;
+                        document.getElementById("btnSubmit").classList.remove = "btn-success";
+                        document.getElementById("btnSubmit").classList.add = "btn-danger";
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+
+                }
+            });
+
+            $.ajax({
+                url: '/Api/BookAPI?type=price&isbn=' + isbn + '&rentalDuration=' + rentalDuration + '&email=' + email,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, xhr) {
+                    $('#lblRentalPrice').text(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+
+                }
+            });
+
+            $.ajax({
+                url: '/Api/UsersAPI?type=name&query=' + email,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, xhr) {
+                    var fields = data.split(';');
+                    $('#firstName').text(fields[0]);
+
+                    var birthDate = fields[1].split(' ');
+                    $('#birthDate').text(birthDate[0]);
+                    document.getElementById("btnAvailability").style.display = 'none';
+                    document.getElementById("nameAndDob").style.display = '';
+                },
+                error: function (xhr, textStatus, errorThrown) {
+
+                }
+            });
+
+        
+        });
     </script>
     
     
