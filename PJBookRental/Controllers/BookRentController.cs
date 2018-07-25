@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace PJBookRental.Controllers
 {
@@ -75,7 +76,7 @@ namespace PJBookRental.Controllers
                     RentalPrice = rentalPr,
                     ScheduledEndDate = bookRent.ScheduledEndDate,
                     RentalDuration = bookRent.RentalDuration,
-                    Status = BookRent.StatusEnum.Requested,
+                    Status = BookRent.StatusEnum.Approved,
                     UserId = userDetails.ToList()[0].Id
                 };
 
@@ -89,7 +90,7 @@ namespace PJBookRental.Controllers
         }
 
         // GET: BookRent
-        public ActionResult Index()
+        public ActionResult Index(int? pageNumber, string option = null, string search = null)
         {
             string userid = User.Identity.GetUserId();
             var model = from br in db.BookRental
@@ -126,12 +127,28 @@ namespace PJBookRental.Controllers
                             StartDate = br.StartDate
                         };
 
-            if(!User.IsInRole(SD.AdminUserRole))
+            // search radio buttons implementation
+            if (option == "email" && search.Length > 0)
+            {
+                model = model.Where(u => u.Email.Contains(search));
+            }
+
+            if (option == "name" && search.Length > 0)
+            {
+                model = model.Where(u => u.FirstName.Contains(search) || u.LastName.Contains(search));
+            }
+
+            if (option == "status" && search.Length > 0)
+            {
+                model = model.Where(u => u.Status.Contains(search));
+            }
+
+            if (!User.IsInRole(SD.AdminUserRole))
             {
                 model = model.Where(u => u.UserId.Equals(userid));
             }
 
-            return View(model.ToList());
+            return View(model.ToList().ToPagedList(pageNumber?? 1,4));
         }
 
         // Reserve Action

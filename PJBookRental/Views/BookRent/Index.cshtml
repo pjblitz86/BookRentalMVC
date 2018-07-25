@@ -1,10 +1,15 @@
-﻿@model IEnumerable<PJBookRental.ViewModel.BookRentalViewModel>
+﻿@model PagedList.IPagedList<PJBookRental.ViewModel.BookRentalViewModel>
+@using PagedList;
+@using PagedList.Mvc;
 @using PJBookRental.Utility
 @using PJBookRental.Models
 
 @{
     ViewBag.Title = "Index";
 }
+
+@using (Html.BeginForm("Index", "BookRent", FormMethod.Get))
+{
 
 <br />
 <div class="row">
@@ -52,85 +57,89 @@
         <th></th>
         <th></th>
         <th>
-            @Html.DisplayNameFor(m => m.Name)
+            @Html.DisplayNameFor(m => m.First().Name)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.Email)
+            @Html.DisplayNameFor(m => m.First().Email)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.Title)
+            @Html.DisplayNameFor(m => m.First().Title)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.StartDate)
+            @Html.DisplayNameFor(m => m.First().StartDate)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.ScheduledEndDate)
+            @Html.DisplayNameFor(m => m.First().ScheduledEndDate)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.RentalPrice)
+            @Html.DisplayNameFor(m => m.First().RentalPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.RentalDuration)
+            @Html.DisplayNameFor(m => m.First().RentalDuration)
         </th>
         <th>
-            @Html.DisplayNameFor(m => m.Status)
+            @Html.DisplayNameFor(m => m.First().Status)
         </th>
         <th></th>
         <th></th>
     </tr>
 
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.HiddenFor(m => item.UserId)
-        </td>
-        <td>
-            @Html.HiddenFor(m => item.BookId)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.ScheduledEndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.RentalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.RentalDuration)
-        </td>
-        <td>
-            @Html.DisplayFor(m => item.Status)
-        </td>
-        <td>
-            @* Details *@
-            @Html.Partial("_IndividualButtonPartial", new IndividualButtonPartial {
-                Action = "Details",
-                ButtonType = "btn-success",
-                Glyph = "list",
-                Text = "Details Button",
-                BookId = null,
-                CustomerId = null,
-                GenreId = null,
-                MembershipTypeId = null,
-                UserId = null,
-                BookRentalId = item.Id
-            })
-        </td>
-        <td>
-            @* Action Buttons *@
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.HiddenFor(m => item.UserId)
+            </td>
+            <td>
+                @Html.HiddenFor(m => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ScheduledEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.RentalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.RentalDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Status)
+            </td>
+            <td>
+                @* Details *@
+                @Html.Partial("_IndividualButtonPartial", new IndividualButtonPartial
+           {
+               Action = "Details",
+               ButtonType = "btn-success",
+               Glyph = "list",
+               Text = "Details Button",
+               BookId = null,
+               CustomerId = null,
+               GenreId = null,
+               MembershipTypeId = null,
+               UserId = null,
+               BookRentalId = item.Id
+           })
+            </td>
+            <td>
+                @* Action Buttons *@
+            </td>
+        </tr>
     }
 
 </table>
+
+    @Html.PagedListPager(Model,pageNumber=>Url.Action("Index", new { pageNumber}))
+}
