@@ -28,6 +28,7 @@ namespace PJBookRental
                       "~/Content/thumbnail.css",
                       "~/Content/social.css",
                       "~/Content/BookDetail.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }
