@@ -54,7 +54,7 @@
                     <div class="input-group" style="height:90px;">
                         <label> Rental Price: </label>
                         <label id="lblOneMonth" style="font-weight:normal;">One Month : $@(Model.RentalPriceOneMonth)</label> <br />
-                        <label id="lblOneMonth" style="font-weight:normal;">One Month : $@(Model.RentalPriceOneMonth)</label> <br />
+                        <label id="lblSixMonth" style="font-weight:normal;">Six Month : $@(Model.RentalPriceSixMonth)</label> <br />
                     </div>
                     <br />
                     <label>Select your rental Duration: </label>
@@ -69,7 +69,7 @@
                     }
                     else
                     {
-                        <button type="submit" class="btn btn-dager">
+                        <button type="submit" class="btn btn-danger disabled">
                             <span class="glyphicon glyphicon-thumbs-down"></span> Unavailable
                         </button>
                     }
@@ -161,6 +161,8 @@
                 &nbsp; &nbsp; &nbsp; &nbsp; @Html.DisplayFor(m => m.ProductDimensions)
             </dd>
         </dl>
+
+        @Html.HiddenFor(m=>m.BookId)
     </div>
 </div>
 }
