@@ -1,0 +1,95 @@
+﻿@model PJBookRental.ViewModel.BookRentalViewModel
+@using PJBookRental.Utility
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h3>Add New Book Rental</h3>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @{
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = SD.OneMonth,
+            Value = SD.OneMonthCount
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = SD.SixMonth,
+            Value = SD.SixMonthCount
+        });
+    }
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RentalDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.RentalDuration, listItems, new {id="ddlRentalDuration", @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.RentalDuration, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @* Not visable at the start *@
+    <div id="nameAndDob" style="display:none;">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label("", new { id = "firstName", style = "width:350px;", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label("", new { id = "birthDate", style = "width:350px;", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label("", new { id = "lblRentalPrice", style = "width:350px;", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Availability, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label("", new { id = "lblAvailability", style = "width:350px;", @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="Check Availability" id="btnAvailability" class="btn btn-sm btn-success"/>
+            <input type="button" value="Reserve" id="btnSubmit" style="display:none;" class="btn btn-sm btn-success" />
+        </div>
+    </div>
+</div>
+}

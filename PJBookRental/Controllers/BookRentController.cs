@@ -18,6 +18,7 @@ namespace PJBookRental.Controllers
             db = ApplicationDbContext.Create();
         }
 
+        // Get Method
         public ActionResult Create(string title = null, string ISBN = null)
         {
             if(title !=null && ISBN != null)
@@ -28,7 +29,7 @@ namespace PJBookRental.Controllers
                     ISBN = ISBN
                 };
             }
-            return View();
+            return View(new BookRentalViewModel());
         }
 
         // Post Action Method
