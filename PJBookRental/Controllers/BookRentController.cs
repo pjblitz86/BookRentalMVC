@@ -256,6 +256,133 @@ namespace PJBookRental.Controllers
             return RedirectToAction("Index");
         }
 
+        // Approve GET
+        public ActionResult Approve(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(id);
+
+            var model = getVMFromBookRent(bookRent);
+
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View("Approve", model);
+        }
+
+        // Approve POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Approve(BookRentalViewModel model)
+        {
+            if (model.Id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(model.Id);
+            bookRent.Status = BookRent.StatusEnum.Approved;
+            
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        // Pickup GET
+        public ActionResult PickUp(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(id);
+
+            var model = getVMFromBookRent(bookRent);
+
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View("Approve", model);
+        }
+
+        // Pickup POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PickUp(BookRentalViewModel model)
+        {
+            if (model.Id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(model.Id);
+            bookRent.Status = BookRent.StatusEnum.Rented;
+            bookRent.StartDate = DateTime.Now;
+            if(bookRent.RentalDuration == SD.SixMonthCount)
+            {
+                bookRent.ScheduledEndDate = DateTime.Now.AddMonths(Convert.ToInt32(SD.SixMonthCount));
+            } else
+            {
+                bookRent.ScheduledEndDate = DateTime.Now.AddMonths(Convert.ToInt32(SD.OneMonthCount));
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        // Return GET
+        public ActionResult Return(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(id);
+
+            var model = getVMFromBookRent(bookRent);
+
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View("Approve", model);
+        }
+
+        // Return POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Return(BookRentalViewModel model)
+        {
+            if (model.Id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(model.Id);
+            bookRent.Status = BookRent.StatusEnum.Rented;
+            bookRent.AdditionalCharge = model.AdditionalCharge;
+
+            Book bookInDb = db.Books.Find(bookRent.BookId);
+            bookInDb.Availability += 1;
+            bookRent.ActualEndDate = DateTime.Now;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         private BookRentalViewModel getVMFromBookRent(BookRent bookRent)
         {
             Book bookSelected = db.Books.Where(b => b.Id == bookRent.BookId).FirstOrDefault();
