@@ -12,6 +12,7 @@ using System.Net;
 
 namespace PJBookRental.Controllers
 {
+    [Authorize]
     public class BookRentController : Controller
     {
         private ApplicationDbContext db;

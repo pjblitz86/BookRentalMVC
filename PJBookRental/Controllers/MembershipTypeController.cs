@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PJBookRental.Models;
+using PJBookRental.Utility;
 
 namespace PJBookRental.Controllers
 {
+    [Authorize(Roles = SD.AdminUserRole)]
     public class MembershipTypeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

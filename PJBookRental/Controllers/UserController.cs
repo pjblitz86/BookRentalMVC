@@ -1,4 +1,5 @@
 ﻿using PJBookRental.Models;
+using PJBookRental.Utility;
 using PJBookRental.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PJBookRental.Controllers
 {
+    [Authorize(Roles = SD.AdminUserRole)]
     public class UserController : Controller
     {
         private ApplicationDbContext db;

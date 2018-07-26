@@ -1,4 +1,5 @@
 ﻿using PJBookRental.Models;
+using PJBookRental.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace PJBookRental.Controllers
 {
+    [Authorize(Roles = SD.AdminUserRole)]
     public class GenreController : Controller
     {
         private ApplicationDbContext db;

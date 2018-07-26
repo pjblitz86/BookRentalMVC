@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using PJBookRental.Utility
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -22,7 +24,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Rental Status", "Index", "BookRent")</li>
-                    @Html.Partial("_AdminMenuPartial")
+                    @if (User.IsInRole(SD.AdminUserRole))
+                    {
+                        @Html.Partial("_AdminMenuPartial")
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
