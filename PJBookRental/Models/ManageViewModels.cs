@@ -23,7 +23,7 @@ namespace PJBookRental.Models
         public string Phone { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
         public DateTime BirthDate { get; set; }
 
         [Required]

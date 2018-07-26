@@ -383,6 +383,53 @@ namespace PJBookRental.Controllers
             return RedirectToAction("Index");
         }
 
+        // Delete GET
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(id);
+
+            var model = getVMFromBookRent(bookRent);
+
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(model);
+        }
+
+        // Delete POST
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int Id)
+        {
+            if (Id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(Id);
+
+            var bookInDb = db.Books.Where(b => b.Id.Equals(bookRent.BookId)).FirstOrDefault();
+            if(!bookRent.Status.ToString().ToLower().Equals("Rented"))
+            {
+                bookInDb.Availability += 1;
+            }
+
+            db.BookRental.Remove(bookRent);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
         private BookRentalViewModel getVMFromBookRent(BookRent bookRent)
         {
             Book bookSelected = db.Books.Where(b => b.Id == bookRent.BookId).FirstOrDefault();

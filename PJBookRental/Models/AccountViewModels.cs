@@ -121,7 +121,7 @@ namespace PJBookRental.Models
         [DateRange("01/01/1900")]
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString ="{0: MMM dd yyyy}")]
         public DateTime BirthDate { get; set; }
     }
 

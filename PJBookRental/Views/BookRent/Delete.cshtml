@@ -1,7 +1,7 @@
 ﻿@model PJBookRental.ViewModel.BookRentalViewModel
 
 @{
-    ViewBag.Title = "Decline";
+    ViewBag.Title = "Delete";
 }
 
 @using (Html.BeginForm())
@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     <fieldset disabled>
-        <h3>Book Rent Decline</h3>
+        <h3>Book Rent Delete</h3>
 
         <div class="row" style="border:1px solid #bbb9b9; border-radius:5px;">
             <div class="col-sm-10">
@@ -117,6 +117,6 @@
     <p>
         @Html.Partial("_BackToListButtonPartial")
 
-        <input type="submit" value="Decline" id="btnSubmit" class="btn btn-sm btn-danger" />
+        <input type="submit" value="Delete" id="btnSubmit" class="btn btn-sm btn-danger" />
     </p>
 }

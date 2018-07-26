@@ -323,6 +323,10 @@
     <Compile Include="Migrations\201807251151365_BookRentViewModelFormatFix.Designer.cs">
       <DependentUpon>201807251151365_BookRentViewModelFormatFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807260935135_FixedDateFormatting.cs" />
+    <Compile Include="Migrations\201807260935135_FixedDateFormatting.Designer.cs">
+      <DependentUpon>201807260935135_FixedDateFormatting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -452,6 +456,7 @@
     <Content Include="Views\BookRent\Details.cshtml" />
     <Content Include="Views\BookRent\Decline.cshtml" />
     <Content Include="Views\BookRent\Approve.cshtml" />
+    <Content Include="Views\BookRent\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -526,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807251151365_BookRentViewModelFormatFix.resx">
       <DependentUpon>201807251151365_BookRentViewModelFormatFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807260935135_FixedDateFormatting.resx">
+      <DependentUpon>201807260935135_FixedDateFormatting.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

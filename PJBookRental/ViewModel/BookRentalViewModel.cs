@@ -33,7 +33,7 @@ namespace PJBookRental.ViewModel
         public double Price { get; set; }
 
         [DisplayName("Date Added")]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
         public DateTime? DateAdded { get; set; }
 
         public int GenreId { get; set; }
@@ -42,7 +42,7 @@ namespace PJBookRental.ViewModel
 
         [DisplayName("Publication Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
         public DateTime PublicationDate { get; set; }
 
         [DisplayName("Pages")]
@@ -55,17 +55,17 @@ namespace PJBookRental.ViewModel
 
         [DisplayName("Start Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
         public DateTime? StartDate { get; set; }
 
         [DisplayName("Actual End Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
         public DateTime? ActualEndDate { get; set; }
 
         [DisplayName("Scheduled End Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
         public DateTime? ScheduledEndDate { get; set; }
 
         [DisplayName("Additional Charge")]
@@ -95,12 +95,13 @@ namespace PJBookRental.ViewModel
 
         [DisplayName("Last Name")]
         public string LastName { get; set; }
+
         public string Name { get { return FirstName + " " + LastName; }}
 
         [DisplayName("Birth Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
-        public DateTime BirthDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0: MMM dd yyyy}")]
+        public DateTime? BirthDate { get; set; }
 
         public string ActionName
         {
