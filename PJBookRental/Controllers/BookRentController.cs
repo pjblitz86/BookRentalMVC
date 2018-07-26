@@ -195,6 +195,7 @@ namespace PJBookRental.Controllers
             return View();
         }
 
+        // Details GET
         public ActionResult Details(int? id)
         {
             if(id == null)
@@ -212,6 +213,47 @@ namespace PJBookRental.Controllers
             }
 
             return View(model);
+        }
+
+        // Decline GET
+        public ActionResult Decline(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(id);
+
+            var model = getVMFromBookRent(bookRent);
+
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(model);
+        }
+
+        // Decline POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Decline(BookRentalViewModel model)
+        {
+            if(model.Id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BookRent bookRent = db.BookRental.Find(model.Id);
+            bookRent.Status = BookRent.StatusEnum.Rejected;
+
+            Book bookInDb = db.Books.Find(bookRent.BookId);
+            bookInDb.Availability += 1;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         private BookRentalViewModel getVMFromBookRent(BookRent bookRent)
