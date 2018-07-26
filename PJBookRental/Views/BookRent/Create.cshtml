@@ -87,7 +87,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="button" value="Check Availability" id="btnAvailability" class="btn btn-sm btn-success"/>
+            <input type="button" value="Check Availability" id="btnAvailability" class="btn btn-sm btn-success" />
             <input type="submit" value="Reserve" id="btnSubmit" style="display:none;" class="btn btn-sm btn-success" />
         </div>
     </div>
@@ -177,7 +177,7 @@
                     $('#firstName').text(fields[0]);
 
                     var birthDate = fields[1].split(' ');
-                    $('#birthDate').text(birthDate[0]);
+                    $('#birthDate').text(birthDate[1]);
                     document.getElementById("btnAvailability").style.display = 'none';
                     document.getElementById("nameAndDob").style.display = '';
                 },
