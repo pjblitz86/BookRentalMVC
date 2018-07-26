@@ -65,6 +65,15 @@
 
             <div class="row" style="padding-bottom:5px; padding-top:25px;">
                 <div class="col-sm-3">
+                    @Html.LabelFor(m => m.RentalDuration, htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.RentalDuration, new { @class = "form-control", enabled = "false" })
+                </div>
+            </div>
+
+            <div class="row" style="padding-bottom:5px; padding-top:25px;">
+                <div class="col-sm-3">
                     @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "control-label" })
                 </div>
                 <div class="col-sm-9">

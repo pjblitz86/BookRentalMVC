@@ -371,7 +371,7 @@ namespace PJBookRental.Controllers
             }
 
             BookRent bookRent = db.BookRental.Find(model.Id);
-            bookRent.Status = BookRent.StatusEnum.Rented;
+            bookRent.Status = BookRent.StatusEnum.Closed;
             bookRent.AdditionalCharge = model.AdditionalCharge;
 
             Book bookInDb = db.Books.Find(bookRent.BookId);

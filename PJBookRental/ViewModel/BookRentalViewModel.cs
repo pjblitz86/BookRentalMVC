@@ -1,4 +1,5 @@
 ﻿using PJBookRental.Models;
+using PJBookRental.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,6 +100,26 @@ namespace PJBookRental.ViewModel
         [DisplayName("Birth Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0: MM dd yyyy}")]
-        public DateTime? BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
+
+        public string ActionName
+        {
+            get
+            {
+                if(Status.ToLower().Contains(SD.RequestedLower))
+                {
+                    return "Approve";
+                }
+                if (Status.ToLower().Contains(SD.ApprovedLower))
+                {
+                    return "PickUp";
+                }
+                if (Status.ToLower().Contains(SD.RentedLower))
+                {
+                    return "Return";
+                }
+                return null;
+            }
+        }
     }
 }
